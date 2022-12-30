@@ -15,5 +15,9 @@ jobs:
               with:
                   github-token: ${{ secrets.GITHUB_TOKEN }}
                   labels: '["enhancement"]'
-            - name: See result
+            - name: Inspect result
               run: echo "${{ steps.check_pr_labels.outputs.result }}"
+            - name: Inspect allLabels
+              run: echo "${{ steps.check_pr_labels.outputs.allLabels }}"
+            - name: Inspect matchedLabels
+              run: echo "${{ steps.check_pr_labels.outputs.matchedLabels }}"
