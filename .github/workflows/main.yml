@@ -1,8 +1,8 @@
 on:
-    workflow_distpatch:
-    push:
-        branches:
-            - master
+  workflow_distpatch:
+  push:
+    branches:
+      - master
 
 jobs:
     check_pr_labels_job:
