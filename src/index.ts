@@ -9,10 +9,13 @@ async function run() {
     const labelNames = await getPullRequestLabelNames(octokit);
 
     const labels = getInputLabels();
+    const matchedLabels = labels.filter(label => labelNames.includes(label));
     const result = labels.every(
         (label) => labelNames.findIndex((value) => label === value) >= 0
     );
     core.setOutput("result", result);
+    core.setOutput("allLabels", labelNames);
+    core.setOutput("matchedLabels", matchedLabels);
 }
 
 async function getPullRequestLabelNames(
