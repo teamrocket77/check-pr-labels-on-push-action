@@ -1,5 +1,5 @@
 on:
-  workflow_distpatch:
+  workflow_dispatch:
   push:
     branches:
       - master
