@@ -21,14 +21,14 @@ The result if given labels have be applied to the PR
 ## Example Usage
 
 ```
-uses: shioyang/check-pr-labels-on-push-action@v1.0.6
+uses: teamrocket77/check-pr-labels-on-push-action@v1.3
 with:
   github-token: ${{ secrets.GITHUB_TOKEN }}
   labels: '["label-1", "label-2"]'
 ```
 
 ### Example Workflow
-e.g. [.github/workflows/main.yml](https://github.com/shioyang/check-pr-labels-on-push-action/blob/master/.github/workflows/main.yml)
+e.g. [.github/workflows/main.yml](https://github.com/teamrocket77/check-pr-labels-on-push-action/blob/master/.github/workflows/main.yml)
 ```
 on:
   workflow_dispatch:
@@ -43,7 +43,7 @@ jobs:
         steps:
             - name: Check PR labels action step
               id: check_pr_labels
-              uses: teamrocket77/check-pr-labels-on-push-action@v1
+              uses: teamrocket77/check-pr-labels-on-push-action@v1.3
               with:
                   github-token: ${{ secrets.GITHUB_TOKEN }}
                   labels: '["enhancement"]'
