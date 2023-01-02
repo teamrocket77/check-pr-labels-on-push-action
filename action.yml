@@ -10,7 +10,9 @@ inputs:
 outputs:
   result: # id of output
     description: 'The result if given labels have be applied to the PR'
-  allLabels: # id of output
+  allLabelsPassed: 
+    description: 'All labels passed in PR'
+  allLabelsPresent: 
     description: 'All labels found in PR'
   matchedLabels: # id of output
     description: 'labels that were matched'
