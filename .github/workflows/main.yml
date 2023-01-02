@@ -20,7 +20,9 @@ jobs:
                   labels: '["enhancement"]'
             - name: Inspect result
               run: echo "${{ steps.check_pr_labels.outputs.result }}"
-            - name: Inspect allLabels
-              run: echo "${{ steps.check_pr_labels.outputs.allLabels }}"
+            - name: Inspect allLabelsPresent
+              run: echo "${{ steps.check_pr_labels.outputs.allLabelsPresent }}"
+            - name: Inspect allLabelsPassed
+              run: echo "${{ steps.check_pr_labels.outputs.allLabelsPassed }}"
             - name: Inspect matchedLabels
               run: echo "${{ steps.check_pr_labels.outputs.matchedLabels }}"

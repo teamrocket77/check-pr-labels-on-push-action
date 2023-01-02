@@ -8,14 +8,20 @@ async function run() {
 
     const labelNames = await getPullRequestLabelNames(octokit);
 
+
     const labels = getInputLabels();
     const matchedLabels = labels.filter(label => labelNames.includes(label));
     const result = labels.every(
         (label) => labelNames.findIndex((value) => label === value) >= 0
     );
+    core.debug(`Labels Returned from PR: ${labelNames.toString()}`);
+    core.debug(`Labels Passed: ${labels}`);
+    core.debug(`Labels that were Matched: ${matchedLabels}`);
+
     core.setOutput("result", result);
-    core.setOutput("allLabels", labelNames);
-    core.setOutput("matchedLabels", matchedLabels);
+    core.setOutput("allLabelsPresent", labelNames.toString());
+    core.setOutput("allLabelsPassed", labels.toString());
+    core.setOutput("matchedLabels", matchedLabels.toString());
 }
 
 async function getPullRequestLabelNames(
