@@ -27,8 +27,10 @@ with:
   labels: '["label-1", "label-2"]'
 ```
 
-### Example Workflow
+### Example Workflow + Job
 e.g. [.github/workflows/main.yml](https://github.com/teamrocket77/check-pr-labels-on-push-action/blob/master/.github/workflows/main.yml)
+[Example job that has completed](https://github.com/teamrocket77/check-pr-labels-on-push-action/actions/runs/3825540468/jobs/6508605660)
+>>>>>>> master
 ```
 on:
   workflow_dispatch:
@@ -49,8 +51,10 @@ jobs:
                   labels: '["enhancement"]'
             - name: Inspect result
               run: echo "${{ steps.check_pr_labels.outputs.result }}"
-            - name: Inspect allLabels
-              run: echo "${{ steps.check_pr_labels.outputs.allLabels }}"
+            - name: Inspect allLabelsPresent
+              run: echo "${{ steps.check_pr_labels.outputs.allLabelsPresent }}"
+            - name: Inspect allLabelsPassed
+              run: echo "${{ steps.check_pr_labels.outputs.allLabelsPassed }}"
             - name: Inspect matchedLabels
               run: echo "${{ steps.check_pr_labels.outputs.matchedLabels }}"
 ```
