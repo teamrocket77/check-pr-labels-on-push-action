@@ -9541,7 +9541,7 @@ async function run() {
     const labels = getInputLabels();
     const matchedLabels = labels.filter(label => labelNames.includes(label));
     const result = labels.every((label) => labelNames.findIndex((value) => label === value) >= 0);
-    core.debug(`Labels Returned from PR: ${labelNames.toString()}`);
+    core.debug(`Labels Returned from PR: ${labels.toString()}`);
     core.debug(`Labels Passed: ${labels}`);
     core.debug(`Labels that were Matched: ${matchedLabels}`);
     core.setOutput("result", result);
