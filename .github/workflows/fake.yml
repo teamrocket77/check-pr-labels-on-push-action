@@ -1,3 +1,4 @@
+name: Fake Repo
 on:
   workflow_dispatch:
   pull_request:
@@ -14,7 +15,7 @@ jobs:
         steps:
             - name: Check PR labels action step
               id: check_pr_labels
-              uses: teamrocket77/check-pr-labels-on-push-action@master
+              uses: teamrocket77/check-pr-labels-on-push-action@2957861b8ad8d3e6c2801cfb36c0c1c573896d1e
               with:
                   github-token: ${{ secrets.GITHUB_TOKEN }}
                   labels: '["enhancement"]'
