@@ -1,0 +1,29 @@
+name: Fake Repo
+on:
+  workflow_dispatch:
+  pull_request:
+    types: [labeled, opened]
+  push:
+    branches:
+      - master
+      - dev
+
+jobs:
+    check_pr_labels_job:
+        runs-on: ubuntu-latest
+        name: A job to check the PR labels contain given labels
+        steps:
+            - name: Check PR labels action step
+              id: check_pr_labels
+              uses: teamrocket77/check-pr-labels-on-push-action@2957861b8ad8d3e6c2801cfb36c0c1c573896d1e
+              with:
+                  github-token: ${{ secrets.GITHUB_TOKEN }}
+                  labels: '["enhancement"]'
+            - name: Inspect result
+              run: echo "${{ steps.check_pr_labels.outputs.result }}"
+            - name: Inspect allLabelsPresent
+              run: echo "${{ steps.check_pr_labels.outputs.allLabelsPresent }}"
+            - name: Inspect allLabelsPassed
+              run: echo "${{ steps.check_pr_labels.outputs.allLabelsPassed }}"
+            - name: Inspect matchedLabels
+              run: echo "${{ steps.check_pr_labels.outputs.matchedLabels }}"
